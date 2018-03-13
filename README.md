@@ -1,4 +1,11 @@
 
+# WeatherPy Data Analysis 
+#### Objective: Visualize the weather of 500+ cities across the world of varying distance from the equator to illustrate what the weather is like as we approach the equator. 
+## Observed Trends 
+* Trend 1 
+* Trend 2 
+* Trend 3
+
 
 ```python
 # Import Dependencies
@@ -17,6 +24,8 @@ import warnings
 warnings.filterwarnings('ignore')
 ```
 
+# Generate Cities List
+
 
 ```python
 # Create empty df to store city data 
@@ -32,20 +41,8 @@ for x in range(0,2500):
 city_df["Lat"] = lat
 city_df["Long"] = long
 #city_df
-city_df.count()
-```
+#city_df.count()
 
-
-
-
-    Lat     2500
-    Long    2500
-    dtype: int64
-
-
-
-
-```python
 # Find cities corresponding to coordinates
 # Create empty list to store city names 
 cities = []
@@ -61,21 +58,13 @@ print(len(city_df))
 # Remove duplicates 
 city_df2 = city_df.drop_duplicates("City",keep="first")
 # Confirm at least 500 unique (non-repeat) cities in df 
-city_df2.count()
+#city_df2.count()
 ```
 
     2500
     
 
-
-
-
-    Lat     853
-    Long    853
-    City    853
-    dtype: int64
-
-
+# Perform API Calls and Print Log
 
 
 ```python
@@ -2691,8 +2680,8 @@ city_df2["Humidity"] = humidity
 city_df2["Clouds"] = clouds
 city_df2["Wind Speed"] = wind
 # Save as csv 
-city_df2.to_csv("city_df2",encoding="utf-8", index=False)
-city_df2.head(50)
+city_df2.to_csv("city_df2.csv",encoding="utf-8", index=False)
+city_df2.head()
 ```
 
 
@@ -2776,461 +2765,13 @@ city_df2.head(50)
       <td>88</td>
       <td>7.78</td>
     </tr>
-    <tr>
-      <th>5</th>
-      <td>70.222751</td>
-      <td>103.460392</td>
-      <td>khatanga</td>
-      <td>-15.87</td>
-      <td>68</td>
-      <td>20</td>
-      <td>3.20</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>-36.801182</td>
-      <td>-140.822291</td>
-      <td>rikitea</td>
-      <td>64.87</td>
-      <td>100</td>
-      <td>36</td>
-      <td>14.72</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>-80.500084</td>
-      <td>173.654369</td>
-      <td>bluff</td>
-      <td>-18.93</td>
-      <td>54</td>
-      <td>24</td>
-      <td>4.32</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>-88.200680</td>
-      <td>81.185858</td>
-      <td>busselton</td>
-      <td>-53.94</td>
-      <td>0</td>
-      <td>0</td>
-      <td>9.35</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>10.174529</td>
-      <td>-106.089433</td>
-      <td>lazaro cardenas</td>
-      <td>79.81</td>
-      <td>100</td>
-      <td>12</td>
-      <td>4.32</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>56.343758</td>
-      <td>-80.449190</td>
-      <td>attawapiskat</td>
-      <td>11.68</td>
-      <td>84</td>
-      <td>68</td>
-      <td>3.20</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>70.553057</td>
-      <td>82.345803</td>
-      <td>karaul</td>
-      <td>-4.53</td>
-      <td>80</td>
-      <td>48</td>
-      <td>11.92</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>14.207892</td>
-      <td>-23.304831</td>
-      <td>praia</td>
-      <td>73.51</td>
-      <td>97</td>
-      <td>32</td>
-      <td>20.76</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>47.696120</td>
-      <td>-145.791555</td>
-      <td>kodiak</td>
-      <td>41.02</td>
-      <td>100</td>
-      <td>68</td>
-      <td>15.05</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>-80.443505</td>
-      <td>-158.068420</td>
-      <td>mataura</td>
-      <td>-21.99</td>
-      <td>32</td>
-      <td>0</td>
-      <td>8.79</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>-18.898649</td>
-      <td>-53.771737</td>
-      <td>camapua</td>
-      <td>72.88</td>
-      <td>95</td>
-      <td>12</td>
-      <td>3.20</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>-45.399515</td>
-      <td>-45.442725</td>
-      <td>rocha</td>
-      <td>55.06</td>
-      <td>100</td>
-      <td>56</td>
-      <td>13.82</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>-36.831982</td>
-      <td>131.776285</td>
-      <td>port lincoln</td>
-      <td>63.34</td>
-      <td>100</td>
-      <td>92</td>
-      <td>9.91</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>-68.867317</td>
-      <td>-82.849242</td>
-      <td>punta arenas</td>
-      <td>31.57</td>
-      <td>100</td>
-      <td>88</td>
-      <td>13.04</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>-75.755659</td>
-      <td>-70.863394</td>
-      <td>ushuaia</td>
-      <td>-4.35</td>
-      <td>68</td>
-      <td>44</td>
-      <td>5.44</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>7.001459</td>
-      <td>99.446092</td>
-      <td>kantang</td>
-      <td>93.20</td>
-      <td>46</td>
-      <td>40</td>
-      <td>10.29</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>25.198740</td>
-      <td>-155.988037</td>
-      <td>kailua</td>
-      <td>68.99</td>
-      <td>100</td>
-      <td>80</td>
-      <td>15.90</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>-15.907369</td>
-      <td>-43.858335</td>
-      <td>sao joao da ponte</td>
-      <td>68.92</td>
-      <td>100</td>
-      <td>92</td>
-      <td>4.99</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>-19.446799</td>
-      <td>51.143754</td>
-      <td>andevoranto</td>
-      <td>81.79</td>
-      <td>100</td>
-      <td>36</td>
-      <td>10.92</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>-60.591020</td>
-      <td>47.333392</td>
-      <td>east london</td>
-      <td>34.54</td>
-      <td>98</td>
-      <td>92</td>
-      <td>19.53</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>-54.254316</td>
-      <td>78.265977</td>
-      <td>mahebourg</td>
-      <td>39.04</td>
-      <td>95</td>
-      <td>92</td>
-      <td>25.34</td>
-    </tr>
-    <tr>
-      <th>32</th>
-      <td>-77.105323</td>
-      <td>116.366274</td>
-      <td>albany</td>
-      <td>-65.73</td>
-      <td>0</td>
-      <td>0</td>
-      <td>4.99</td>
-    </tr>
-    <tr>
-      <th>34</th>
-      <td>43.858710</td>
-      <td>23.705895</td>
-      <td>macesu de jos</td>
-      <td>50.00</td>
-      <td>93</td>
-      <td>75</td>
-      <td>12.75</td>
-    </tr>
-    <tr>
-      <th>36</th>
-      <td>-6.066248</td>
-      <td>-108.920769</td>
-      <td>puerto ayora</td>
-      <td>77.29</td>
-      <td>100</td>
-      <td>88</td>
-      <td>16.06</td>
-    </tr>
-    <tr>
-      <th>37</th>
-      <td>34.293321</td>
-      <td>6.572395</td>
-      <td>tuggurt</td>
-      <td>60.82</td>
-      <td>71</td>
-      <td>0</td>
-      <td>7.23</td>
-    </tr>
-    <tr>
-      <th>38</th>
-      <td>-40.748942</td>
-      <td>154.158222</td>
-      <td>batemans bay</td>
-      <td>65.86</td>
-      <td>99</td>
-      <td>12</td>
-      <td>18.30</td>
-    </tr>
-    <tr>
-      <th>39</th>
-      <td>-32.167144</td>
-      <td>-86.898315</td>
-      <td>lebu</td>
-      <td>68.47</td>
-      <td>100</td>
-      <td>44</td>
-      <td>11.25</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>-15.960041</td>
-      <td>76.427206</td>
-      <td>hithadhoo</td>
-      <td>77.47</td>
-      <td>100</td>
-      <td>88</td>
-      <td>28.14</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>84.379937</td>
-      <td>-26.357398</td>
-      <td>illoqqortoormiut</td>
-      <td>-28.29</td>
-      <td>46</td>
-      <td>0</td>
-      <td>0.74</td>
-    </tr>
-    <tr>
-      <th>43</th>
-      <td>6.981830</td>
-      <td>107.270005</td>
-      <td>bac lieu</td>
-      <td>80.26</td>
-      <td>97</td>
-      <td>68</td>
-      <td>16.28</td>
-    </tr>
-    <tr>
-      <th>44</th>
-      <td>51.983276</td>
-      <td>-2.678317</td>
-      <td>hereford</td>
-      <td>41.81</td>
-      <td>93</td>
-      <td>75</td>
-      <td>2.24</td>
-    </tr>
-    <tr>
-      <th>45</th>
-      <td>-55.653754</td>
-      <td>63.174136</td>
-      <td>taolanaro</td>
-      <td>37.96</td>
-      <td>100</td>
-      <td>64</td>
-      <td>39.10</td>
-    </tr>
-    <tr>
-      <th>46</th>
-      <td>-88.384480</td>
-      <td>4.140605</td>
-      <td>hermanus</td>
-      <td>-52.86</td>
-      <td>0</td>
-      <td>0</td>
-      <td>22.32</td>
-    </tr>
-    <tr>
-      <th>48</th>
-      <td>-51.464898</td>
-      <td>3.806567</td>
-      <td>cape town</td>
-      <td>35.98</td>
-      <td>100</td>
-      <td>92</td>
-      <td>27.92</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>-36.674025</td>
-      <td>149.454594</td>
-      <td>cooma</td>
-      <td>59.56</td>
-      <td>77</td>
-      <td>76</td>
-      <td>2.75</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>61.495368</td>
-      <td>-50.929489</td>
-      <td>paamiut</td>
-      <td>28.06</td>
-      <td>100</td>
-      <td>20</td>
-      <td>19.86</td>
-    </tr>
-    <tr>
-      <th>52</th>
-      <td>43.786964</td>
-      <td>-75.910697</td>
-      <td>watertown</td>
-      <td>30.20</td>
-      <td>100</td>
-      <td>90</td>
-      <td>6.44</td>
-    </tr>
-    <tr>
-      <th>54</th>
-      <td>10.635452</td>
-      <td>-25.199165</td>
-      <td>sao filipe</td>
-      <td>75.22</td>
-      <td>100</td>
-      <td>0</td>
-      <td>16.51</td>
-    </tr>
-    <tr>
-      <th>56</th>
-      <td>69.149553</td>
-      <td>-102.211320</td>
-      <td>yellowknife</td>
-      <td>-25.50</td>
-      <td>79</td>
-      <td>12</td>
-      <td>10.25</td>
-    </tr>
-    <tr>
-      <th>57</th>
-      <td>-31.892982</td>
-      <td>31.737032</td>
-      <td>margate</td>
-      <td>73.78</td>
-      <td>100</td>
-      <td>0</td>
-      <td>16.06</td>
-    </tr>
-    <tr>
-      <th>58</th>
-      <td>-0.855357</td>
-      <td>100.753907</td>
-      <td>solok</td>
-      <td>75.31</td>
-      <td>89</td>
-      <td>80</td>
-      <td>2.98</td>
-    </tr>
-    <tr>
-      <th>59</th>
-      <td>-65.684278</td>
-      <td>150.939823</td>
-      <td>hobart</td>
-      <td>24.55</td>
-      <td>96</td>
-      <td>76</td>
-      <td>16.62</td>
-    </tr>
-    <tr>
-      <th>62</th>
-      <td>-28.630232</td>
-      <td>-75.247421</td>
-      <td>coquimbo</td>
-      <td>65.95</td>
-      <td>99</td>
-      <td>0</td>
-      <td>23.11</td>
-    </tr>
-    <tr>
-      <th>64</th>
-      <td>87.847115</td>
-      <td>144.205180</td>
-      <td>chokurdakh</td>
-      <td>-14.70</td>
-      <td>68</td>
-      <td>64</td>
-      <td>14.05</td>
-    </tr>
-    <tr>
-      <th>65</th>
-      <td>83.948190</td>
-      <td>90.039846</td>
-      <td>dikson</td>
-      <td>-7.86</td>
-      <td>64</td>
-      <td>68</td>
-      <td>8.23</td>
-    </tr>
   </tbody>
 </table>
 </div>
 
 
+
+# Temperature vs Latitude Plot 
 
 
 ```python
@@ -3239,55 +2780,61 @@ plt.scatter(city_df2["Lat"],city_df2["Temperature"],marker=".")
 plt.title("Temperature (F) vs. Latitude - 3/13/18")
 plt.xlabel("Latitude")
 plt.ylabel("Temperature (F)")
-plt.savefig("Temp_v_Lat.png")
-plt.show()
-```
-
-
-![png](output_5_0.png)
-
-
-
-```python
-# Humidity Vs. Latitude
-plt.scatter(city_df2["Lat"],city_df2["Humidity"],marker =".")
-plt.title("Humidity (%) vs. Latitude - 3/13/18")
-plt.xlabel("Latitude")
-plt.ylabel("Humidity (%)")
-plt.savefig("Humidity_v_Lat.png")
-plt.show()
-```
-
-
-![png](output_6_0.png)
-
-
-
-```python
-# Cloudiness Vs. Latitude 
-plt.scatter(city_df2["Lat"],city_df2["Clouds"],marker =".")
-plt.title("Cloudiness (%) vs. Latitude - 3/13/18")
-plt.xlabel("Latitude")
-plt.ylabel("Cloudiness (%)")
-plt.savefig("Clouds_v_Lat.png")
-plt.show()
-```
-
-
-![png](output_7_0.png)
-
-
-
-```python
-# Wind Speed Vs. Latitude 
-plt.scatter(city_df2["Lat"],city_df2["Clouds"],marker =".")
-plt.title("Wind Speed (mph) vs. Latitude - 3/13/18")
-plt.xlabel("Latitude")
-plt.ylabel("Wind Speed (mph)")
-plt.savefig("Wind_v_Lat.png")
+plt.savefig("1_Temp_v_Lat.png")
 plt.show()
 ```
 
 
 ![png](output_8_0.png)
+
+
+# Humidity vs Latitude Plot 
+
+
+```python
+# Humidity vs Latitude
+plt.scatter(city_df2["Lat"],city_df2["Humidity"],marker =".")
+plt.title("Humidity (%) vs. Latitude - 3/13/18")
+plt.xlabel("Latitude")
+plt.ylabel("Humidity (%)")
+plt.savefig("2_Humidity_v_Lat.png")
+plt.show()
+```
+
+
+![png](output_10_0.png)
+
+
+# Cloudiness vs Latitude Plot 
+
+
+```python
+# Cloudiness vs Latitude 
+plt.scatter(city_df2["Lat"],city_df2["Clouds"],marker =".")
+plt.title("Cloudiness (%) vs. Latitude - 3/13/18")
+plt.xlabel("Latitude")
+plt.ylabel("Cloudiness (%)")
+plt.savefig("3_Clouds_v_Lat.png")
+plt.show()
+```
+
+
+![png](output_12_0.png)
+
+
+# Wind Speed vs Latitude Plot 
+
+
+```python
+# Wind Speed vs Latitude 
+plt.scatter(city_df2["Lat"],city_df2["Clouds"],marker =".")
+plt.title("Wind Speed (mph) vs. Latitude - 3/13/18")
+plt.xlabel("Latitude")
+plt.ylabel("Wind Speed (mph)")
+plt.savefig("4_Wind_v_Lat.png")
+plt.show()
+```
+
+
+![png](output_14_0.png)
 
